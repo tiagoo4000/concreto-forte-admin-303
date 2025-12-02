@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.375rem;
+    
+    --gradient-hero: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(35 91% 45%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 20%) 100%);
+    --shadow-strong: 0 20px 50px -10px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(38 92% 50% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 38 92% 50%;
+    
+    --gradient-hero: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(35 91% 45%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 15%) 100%);
+    --shadow-strong: 0 20px 50px -10px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 40px hsl(38 92% 50% / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Rich Text Editor Styles */
+.rich-text-editor .ql-container {
+  min-height: 300px;
+  font-family: inherit;
+}
+
+.rich-text-editor .ql-editor {
+  min-height: 300px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.rich-text-editor .ql-toolbar {
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: hsl(var(--muted));
+  border-color: hsl(var(--border));
+}
+
+.rich-text-editor .ql-container {
+  border-radius: 0 0 0.5rem 0.5rem;
+  border-color: hsl(var(--border));
+}
+
+.rich-text-editor .ql-editor.ql-blank::before {
+  color: hsl(var(--muted-foreground));
+  font-style: normal;
+}
+
+.rich-text-editor .ql-snow .ql-stroke {
+  stroke: hsl(var(--foreground));
+}
+
+.rich-text-editor .ql-snow .ql-fill {
+  fill: hsl(var(--foreground));
+}
+
+.rich-text-editor .ql-snow .ql-picker-label {
+  color: hsl(var(--foreground));
+}
+
+.rich-text-editor .ql-toolbar button:hover,
+.rich-text-editor .ql-toolbar button:focus,
+.rich-text-editor .ql-toolbar button.ql-active {
+  color: hsl(var(--primary));
+}
+
+.rich-text-editor .ql-toolbar button:hover .ql-stroke,
+.rich-text-editor .ql-toolbar button:focus .ql-stroke,
+.rich-text-editor .ql-toolbar button.ql-active .ql-stroke {
+  stroke: hsl(var(--primary));
+}
+
+.rich-text-editor .ql-toolbar button:hover .ql-fill,
+.rich-text-editor .ql-toolbar button:focus .ql-fill,
+.rich-text-editor .ql-toolbar button.ql-active .ql-fill {
+  fill: hsl(var(--primary));
+}
